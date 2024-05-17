@@ -1,0 +1,47 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --heading-secondary: #2a1454;
+  --theme-primary: #8750f7;
+  --paragraph-text: #2a1454;
+}
+.paragraph-text {
+  color: var(--paragraph-text);
+}
+.heading-text {
+  background: linear-gradient(
+    to right,
+    var(--theme-primary) 0%,
+    var(--heading-secondary) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  background-position:center;
+  background-size:cover;
+}
+.nav-color {
+  color: var(--paragraph-text);
+}
+.body {
+  /* font-family: "Roboto Slab", serif; */
+  /* font-family: Space Grotesk, sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.ff {
+  /* font-family: "Roboto Slab", serif; */
+  font-family: "Montserrat", sans-serif;
+}
+.pp {
+  /* font-family: "Space Grotesk", sans-serif; */
+  font-family: "Montserrat", sans-serif;
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1200px !important;
+  }
+}
