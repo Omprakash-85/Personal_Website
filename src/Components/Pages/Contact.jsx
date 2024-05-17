@@ -54,6 +54,9 @@ const Contact = () => {
       });
       try {
         const response = await axios.post(`${postApiUrls}`, formData);
+        emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
+          publicKey: "5avrxgGOFhKVdhoaz",
+        });
         if (response.data.success) {
           setSubmitted(true);
           setTimeout(() => {
@@ -94,7 +97,7 @@ const Contact = () => {
                 Let's get in touch
               </h1>
               {submitted ? (
-                <div>
+                <div className="lg:block md:block block">
                   <h1 className="ff text-3xl heading-text font-semibold">
                     Hi {formData.name},
                   </h1>
