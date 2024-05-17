@@ -49,7 +49,7 @@ const Contact = () => {
     }
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
-      emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", form.current, {
+      emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
         publicKey: "5avrxgGOFhKVdhoaz",
       });
       try {
