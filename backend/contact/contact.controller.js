@@ -4,7 +4,7 @@ async function submitForm(req, res) {
   try {
     const formData = req.body;
     const submission = await saveFormData(formData);
-    console.log("formdata", formData);
+    // console.log("formdata", formData);
     res
       .status(200)
       .json({

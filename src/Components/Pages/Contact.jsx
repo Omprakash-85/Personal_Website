@@ -28,6 +28,54 @@ const Contact = () => {
     }));
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const validationErrors = {};
+  //   if (formData.name.trim() === "") {
+  //     validationErrors.name = "Name is required";
+  //   }
+  //   if (formData.email.trim() === "") {
+  //     validationErrors.email = "Email is required";
+  //   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+  //     validationErrors.email = "Invalid email format";
+  //   }
+  //   if (formData.phone.trim() === "") {
+  //     validationErrors.phone = "Phone number is required";
+  //   } else if (!/^\d{10}$/.test(formData.phone)) {
+  //     validationErrors.phone = "Phone number must be 10 digits";
+  //   }
+  //   if (formData.message.trim() === "") {
+  //     validationErrors.message = "Message is required";
+  //   }
+  //   setErrors(validationErrors);
+  //   if (Object.keys(validationErrors).length === 0) {
+  //     emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
+  //       publicKey: "5avrxgGOFhKVdhoaz",
+  //     });
+  //     try {
+  //       const response = await axios.post(`${postApiUrls}`, formData);
+  //       emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
+  //         publicKey: "5avrxgGOFhKVdhoaz",
+  //       });
+  //       if (response.data.success) {
+  //         setSubmitted(true);
+  //         setTimeout(() => {
+  //           setSubmitted(false);
+  //           setFormData({
+  //             name: "",
+  //             email: "",
+  //             phone: "",
+  //             message: "",
+  //           });
+  //         }, 10000);
+  //       } else {
+  //         setErrors(response.data.errors);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error submitting form:", error);
+  //     }
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = {};
@@ -49,25 +97,26 @@ const Contact = () => {
     }
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
-      emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
-        publicKey: "5avrxgGOFhKVdhoaz",
-      });
       try {
         const response = await axios.post(`${postApiUrls}`, formData);
-        emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
-          publicKey: "5avrxgGOFhKVdhoaz",
-        });
         if (response.data.success) {
-          setSubmitted(true);
-          setTimeout(() => {
+          emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
+            publicKey: "5avrxgGOFhKVdhoaz",
+          }).then(() => {
+            setSubmitted(true);
+            setTimeout(() => {
+              setSubmitted(false);
+              setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                message: "",
+              });
+            }, 10000);
+          }).catch((error) => {
+            console.error("Error sending email:", error);
             setSubmitted(false);
-            setFormData({
-              name: "",
-              email: "",
-              phone: "",
-              message: "",
-            });
-          }, 10000);
+          });
         } else {
           setErrors(response.data.errors);
         }
@@ -76,6 +125,7 @@ const Contact = () => {
       }
     }
   };
+  
 
   return (
     <div>
