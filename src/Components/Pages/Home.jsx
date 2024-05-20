@@ -12,7 +12,17 @@ import dynmic from "../Assests/Images/dynmic.png";
 import design from "../Assests/Images/web-design.png";
 import { Link, NavLink } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
-const Home = () => {
+const Home = ({ pdfUrl }) => {
+  const handleDownload = (event) => {
+    event.preventDefault(); // Prevent default behavior of clicking the link
+
+    const link = document.createElement("a");
+    link.href = "../Assests/Images/om-jangid-resume.pdf";
+    link.download = "om-jangid-resume.pdf"; // Set the filename for the downloaded file
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <>
       <div className="section-1 py-4 lg:py-0 md:py-4">
@@ -39,11 +49,17 @@ const Home = () => {
                   innovation, I deliver cutting-edge, scalable solutions. Let's
                   connect to advance your technological goals.
                 </p>
-                <Link as={NavLink} to="/contact">
-                  <button className=" button-btn ff py-2 text-xl px-4 rounded-lg mb-2 border-2 border-[#2a1454;]">
-                    Download CV
-                  </button>
-                </Link>
+
+                <a
+                 href="../Assests/Images/om-jangid-resume.pdf"
+                  className="button-btn ff py-2 text-xl px-4 rounded-lg mb-2 border-2 border-[#2a1454;] cursor-pointer"
+                  download="om-jangid-resume.pdf"
+                  onClick={handleDownload}
+                >
+                  Download CV
+                </a>
+   
+  
                 <Link as={NavLink} to="/contact">
                   <button className=" paragraph-text ff py-2 text-xl px-4 lg:px-12 md:px-12 mx-4 rounded-lg  border-2 border-[#2a1454;]">
                     Hire Me
@@ -72,7 +88,7 @@ const Home = () => {
                     Fast
                   </h1>
                   <p className="pp text-lg paragraph-text">
-                    Swift web development has gained traction in recent.  
+                    Swift web development has gained traction in recent.
                   </p>
                 </div>
               </div>
@@ -102,7 +118,7 @@ const Home = () => {
                     Intuitive
                   </h1>
                   <p className="pp text-lg paragraph-text">
-                  Crafting intuitive web experiences involves.
+                    Crafting intuitive web experiences involves.
                   </p>
                 </div>
               </div>
