@@ -17,13 +17,13 @@ const Footer = () => {
           </h2>
           <div className="flex gap-4 lg:gap-6 flex-wrap m-auto justify-center py-6">
             <a
-              href="https://github.com/"
+              href="https://github.com/Omprakash-85"
               className="text-white border-2 text-3xl lg:px-3 lg:py-3 py-2 px-2 rounded-full"
             >
               <FaGithub />
             </a>
             <a
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/er_om_jangid_"
               className="text-white border-2 text-3xl lg:px-3 lg:py-3 py-2 px-2 rounded-full"
             >
               <FaInstagram />

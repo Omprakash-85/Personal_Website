@@ -46,7 +46,7 @@ const About = () => {
               </p>
               <div className="flex gap-4 lg:gap-6 flex-wrap m-auto py-6">
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/Omprakash-85"
                   className=" text-[#2a1454;] border-2 border-[#44395a;] text-3xl lg:px-3 lg:py-3 py-2 px-2 rounded-full"
                 >
                   <FaGithub />
@@ -58,7 +58,7 @@ const About = () => {
                   <IoMdCall />
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/er_om_jangid_"
                   className="text-[#2a1454;] border-2 border-[#44395a;] text-3xl lg:px-3 lg:py-3 py-2 px-2 rounded-full"
                 >
                   <FaInstagram />
