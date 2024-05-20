@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 4000;
 const MONGODB_URL = process.env.MONGODB_URL;
 
 mongoose
@@ -18,4 +18,4 @@ mongoose
   })
   .catch((err) => console.error("Error connecting to MongoDB:", err));
 app.use("/api", formRouter);
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
