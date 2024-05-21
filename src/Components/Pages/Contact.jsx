@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import Lottie from "lottie-react";
 import contact from "../../Lottie/contact.json";
 import axios from "axios";
-import { postApiUrls } from "./Apis";
+// import { postApiUrls } from "./Apis";
 import emailjs from "@emailjs/browser";
+const postApiUrls = "https://omjangid.onrender.com";
 
 const Contact = () => {
   const form = useRef();
