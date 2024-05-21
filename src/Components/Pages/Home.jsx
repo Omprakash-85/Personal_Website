@@ -12,17 +12,8 @@ import dynmic from "../Assests/Images/dynmic.png";
 import design from "../Assests/Images/web-design.png";
 import { Link, NavLink } from "react-router-dom";
 import ProgressBar from "./ProgressBar";
-const Home = ({ pdfUrl }) => {
-  const handleDownload = (event) => {
-    event.preventDefault(); // Prevent default behavior of clicking the link
-
-    const link = document.createElement("a");
-    link.href = "../Assests/Images/om-jangid-resume.pdf";
-    link.download = "om-jangid-resume.pdf"; // Set the filename for the downloaded file
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+import Resume from '../Assests/Images/om-jangid.pdf'
+const Home = () => {
   return (
     <>
       <div className="section-1 py-4 lg:py-0 md:py-4">
@@ -50,11 +41,9 @@ const Home = ({ pdfUrl }) => {
                   connect to advance your technological goals.
                 </p>
 
-                <a
-                 href="../Assests/Images/om-jangid-resume.pdf"
+                <a href={Resume}
                   className="button-btn ff py-2 text-xl px-4 rounded-lg mb-2 border-2 border-[#2a1454;] cursor-pointer"
                   download="om-jangid-resume.pdf"
-                  onClick={handleDownload}
                 >
                   Download CV
                 </a>
