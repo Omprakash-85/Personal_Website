@@ -40,20 +40,21 @@ const Home = () => {
                   innovation, I deliver cutting-edge, scalable solutions. Let's
                   connect to advance your technological goals.
                 </p>
-
+               <div className="flex">
                 <a href={Resume}
-                  className="button-btn ff py-2 text-xl px-4 rounded-lg mb-2 border-2 border-[#2a1454;] cursor-pointer"
+                  className="button-btn ff py-2 text-xl px-3 lg:px-4 md:px-4 rounded-lg mb-2 border-2 border-[#2a1454;] cursor-pointer"
                   download="om-jangid-resume.pdf"
-                >
+                  >
                   Download CV
                 </a>
    
   
                 <Link as={NavLink} to="/contact">
-                  <button className=" paragraph-text ff py-2 text-xl px-4 lg:px-12 md:px-12 mx-4 rounded-lg  border-2 border-[#2a1454;]">
+                  <button className=" paragraph-text ff py-2 text-xl px-4 lg:px-12 md:px-12 mx-1 lg:mx-4 md:mx-4 rounded-lg  border-2 border-[#2a1454;]">
                     Hire Me
                   </button>
                 </Link>
+                  </div>
               </div>
             </div>
             <div className="col-span-12 md:col-span-12 lg:col-span-5 my-5">
