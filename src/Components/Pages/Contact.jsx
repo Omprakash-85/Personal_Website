@@ -89,11 +89,11 @@ const Contact = () => {
       </div>
       <div className="section-1 py-6 lg:py-10 md:py-8 bg-[#f6f3fc;] my-5">
         <div className="container mx-auto px-5 lg:px-4 md:px-4">
-          <div className="grid grid-cols-12 gap-7 lg:gap-12 items-center">
+          <div className="grid grid-cols-12 lg:gap-12 items-center">
             <div className="col-span-12 md:col-span-12 lg:col-span-6">
               <Lottie animationData={contact} />
             </div>
-            <div className="col-span-12 md:col-span-12 lg:col-span-6">
+            <div className="col-span-12 md:col-span-12 lg:col-span-6 my-4 mb-0 md:my-10">
               <h1 className="text-3xl mb-5 lg:pb-2 heading-text ff font-semibold">
                 Let's get in touch
               </h1>
