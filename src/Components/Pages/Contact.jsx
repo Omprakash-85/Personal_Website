@@ -16,6 +16,7 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,6 +31,7 @@ const Contact = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const validationErrors = {};
     if (formData.name.trim() === "") {
       validationErrors.name = "Name is required";
@@ -56,6 +58,7 @@ const Contact = () => {
             publicKey: "5avrxgGOFhKVdhoaz",
           }).then(() => {
             setSubmitted(true);
+            setLoading(false);
             setTimeout(() => {
               setSubmitted(false);
               setFormData({
@@ -67,14 +70,19 @@ const Contact = () => {
             }, 10000);
           }).catch((error) => {
             console.error("Error sending email:", error);
+            setLoading(false);
             setSubmitted(false);
           });
         } else {
           setErrors(response.data.errors);
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error submitting form:", error);
+        setLoading(false);
       }
+    }else{
+      setLoading(false);
     }
   };
   
@@ -215,12 +223,44 @@ const Contact = () => {
                     )}
                   </div>
                   <div className="mb-4">
-                    <button
+                    {/* <button
                       type="submit"
                       className="bg-[#6641ab] w-full h-16 rounded text-white text-xl font-semibold focus:outline-none focus:shadow-outline"
                     >
                       Contact Us
-                    </button>
+                    </button> */}
+                     {loading ? (
+                      <div className="flex justify-center items-center bg-[#6641ab] w-full h-16 rounded text-white text-xl">
+                        <svg
+                          className="animate-spin h-8 w-8 mr-3 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647zM20 12a7.963 7.963 0 01-2 5.291l3 2.647A11.952 11.952 0 0024 12h-4zm-2-5.291l-3 2.647A11.952 11.952 0 0012 0v4c3.042 0 5.824 1.135 7.938 3H18z"
+                          ></path>
+                        </svg>
+                        <span className="text-xl font-semibold pp">Submitted</span>
+                      </div>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="bg-[#6641ab] w-full h-16 rounded text-white text-xl font-semibold focus:outline-none focus:shadow-outline"
+                      >
+                        Contact Us
+                      </button>
+                    )}
                   </div>
                 </form>
               )}
