@@ -2,9 +2,9 @@ import React, { useRef, useState } from "react";
 import Lottie from "lottie-react";
 import contact from "../../Lottie/contact.json";
 import axios from "axios";
-// import { BASE_URL } from "./Apis";
+import { postApiUrls } from "./Apis";
 import emailjs from "@emailjs/browser";
-const BASE_URL = process.env.BASE_URL;
+// const BASE_URL = process.env.BASE_URL;
 
 const Contact = () => {
   const form = useRef();
@@ -50,7 +50,7 @@ const Contact = () => {
     setErrors(validationErrors);
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const response = await axios.post(`${BASE_URL}`, formData);
+        const response = await axios.post(`${postApiUrls}`, formData);
         if (response.data.success) {
           emailjs.sendForm("service_jjg2ybf", "template_1sh88rj", e.target, {
             publicKey: "5avrxgGOFhKVdhoaz",
